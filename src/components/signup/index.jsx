@@ -1,39 +1,9 @@
-// import { Link } from "react-router-dom";
 import { useFormik } from "formik";
 import * as yup from "yup";
 import "./index.css";
-// import { useState } from "react";
-// import { FaRegEyeSlash, FaRegEye } from "react-icons/fa";
-
-// const initialValues = {
-// 	name: "",
-// 	email: "",
-// 	userPhoneNumber: "",
-// 	adress:"",
-// 	websiteURL:"",
-// 	// name:"",
-// 	password:"",
-// 	repeat_password: "",
-// };
 
 
 function Signup() {
-
-    //   const { values, errors, handleBlur, handleChange, handleSubmit } = useFormik({
-
-    //function to show password
-    // const [showPswIcon, setShowPswIcon] = useState("eyeOpen");
-    // const pass1 = document.querySelector("#userPassword");
-    // const show_password = () => {
-    //     // console.log(pass1.type);
-    //     if (pass1.type === "password") {
-    //         pass1.type = "text";
-    //         setShowPswIcon("eyeClose");
-    //     } else {
-    //         pass1.type = "password";
-    //         setShowPswIcon("eyeOpen");
-    //     }
-    // };
 
     const fmrk = useFormik({
         initialValues: {
@@ -75,7 +45,7 @@ function Signup() {
                 .required("Please enter your password again")
                 .min(6, "Please enter more then 6 characters ")
                 .max(65, "Please enter within 65 characters ")
-                .oneOf([yup.ref("password"), null], "Passwords must match"), //line to check if two passwords match
+                .oneOf([yup.ref("password"), null], "Passwords must match"),
             userPhoneNumber: yup
                 .string("Enter your Phone Number")
                 .required("Phone Number is required")
@@ -87,13 +57,8 @@ function Signup() {
 
         onSubmit: (values) => {
             console.log(values);
-            //do something like there you can call API or send data to firebase
-            //   if (errors) console.log("error is", errors);
         },
     });
-    // console.log(Formik)
-    // if (fmrk.errors) console.log("error is", fmrk.errors);
-
 
     return (
         <div>
